@@ -1,0 +1,1 @@
+功能说明：Class B Self Test Library 使用演示历程，上电自检CPU寄存器、RAM、WDT、Flash、Clock功能，进入主循环后周期性自检CPU寄存器、RAM、Flash、Clock功能，若未能通过自检则停止执行用户程序（可选择软件复位，重新开始执行）
