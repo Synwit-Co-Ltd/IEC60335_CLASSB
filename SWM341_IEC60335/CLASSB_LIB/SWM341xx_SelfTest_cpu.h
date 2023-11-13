@@ -25,6 +25,6 @@
 ErrorStatus SelfTest_StartUpCPUTest(void);
 ErrorStatus SelfTest_RunTimeCPUTest(void);
 
-#endif /* __AT32F4XX_SELFTEST_CPU_H */
+#endif 
 
 

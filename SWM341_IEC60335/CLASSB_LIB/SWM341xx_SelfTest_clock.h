@@ -52,6 +52,6 @@ static ErrorStatus STL_HSEinit(void);
 							void SysTick_SetReload(uint32_t Reload);
 							void STL_SysTickInit(void);
 	
-#endif /* __AT32F4XX_SELFTEST_CLOCK_H */
+#endif
 
 

@@ -28,6 +28,6 @@ typedef enum {
 void SelfTest_FlashCrc32Init(void);
 ClassBTestStatus SelfTest_crc32Run(void);
 
-#endif /* __AT32F4XX_SELFTEST_CRC32_H */
+#endif 
 
 

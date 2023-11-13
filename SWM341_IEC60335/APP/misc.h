@@ -31,9 +31,7 @@ extern "C" {
 typedef struct
 {
     uint8_t NVIC_IRQChannel;                        /*!< Specifies the IRQ channel to be enabled or disabled.
-                                                       This parameter can be a value of @ref IRQn_Type
-                                                       (For the complete AT32 Devices IRQ Channels list, please
-                                                        refer  */
+                                                       This parameter can be a value of @ref IRQn_Type */
 
     uint8_t NVIC_IRQChannelPreemptionPriority;      /*!< Specifies the pre-emption priority for the IRQ channel
                                                        specified in NVIC_IRQChannel. This parameter can be a value
