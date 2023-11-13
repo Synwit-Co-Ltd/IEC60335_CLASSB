@@ -3,7 +3,7 @@ REM Batch script for generating CRC in KEIL project
 REM Must be placed at MDK-ARM folder (project folder)
 
 REM Path configuration
-SET SREC_PATH=.\srec
+SET SREC_PATH=..\srec
 SET TARGET_NAME=SWM181_IEC60335
 SET TARGET_PATH=.\out
 SET COMPARE_HEX=0
