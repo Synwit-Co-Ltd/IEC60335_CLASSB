@@ -1,0 +1,10 @@
+功能说明：Class B Self Test Library 使用演示历程，上电自检CPU寄存器、RAM、WDT、Flash、Clock功能，进入主循环后周期性自检CPU寄存器、RAM、Flash、Clock功能，若未能通过自检则停止执行用户程序（可选择软件复位，重新开始执行）
+
+注意：SWM2X1_STLstartup.c 优化等级为 -O0
+
+{R4-R7}为"callee saved"寄存器, STL_FullRamMarchC()会寄存在堆栈, 因此STL_StartUp()会默认{R4-R7}在
+STL_FullRamMarchC()返回时是保存不变的,可能会利用这个规定做一些优化。
+
+因为STL_FullRamMarchC()在对SRAM进行擦写测试需要使用{R4-R7}, 同时破坏SRAM数据(堆栈), 堆栈里的{R4-R7}值已经丢失。
+如果STL_StartUp()在完成调用STL_FullRamMarchC()后需使用{R4-R7}值, 就会导致程序运行出错。
+把优化等级设置为0，STL_StartUp()不会使用{R4-R7}, 避免这问题。
