@@ -58,7 +58,7 @@
 
 #ifdef __clang__   /* KEIL Compiler */
   /* RAM location for temporary storage of original values at run time RAM transparent test */
-  EXTERN uint32_t aRunTimeRamBuf[RT_RAM_BLOCKSIZE + 2] __attribute__((section("RUN_TIME_RAM_BUF")))
+  EXTERN uint32_t aRunTimeRamBuf[RT_RAM_BLOCKSIZE + 2] __attribute__((section("RUN_TIME_RAM_BUF")));
 
   /* RAM pointer for run-time tests */
   EXTERN uint32_t *pRunTimeRamChk        __attribute__((section("RUN_TIME_RAM_PNT")));
