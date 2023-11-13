@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>SWM241xB</Device>
           <Vendor>Synwit</Vendor>
-          <PackID>Synwit.SWM32_New.0.0.6</PackID>
+          <PackID>Synwit.SWM32_New.0.0.9</PackID>
           <PackURL>http://www.synwit.com/pack</PackURL>
           <Cpu>CLOCK(12000000) CPUTYPE("Cortex-M0") ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -132,11 +132,11 @@
             <UseTargetDll>1</UseTargetDll>
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
-            <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
+            <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
             <DriverSelection>4100</DriverSelection>
           </Flash1>
-          <bUseTDR>0</bUseTDR>
+          <bUseTDR>1</bUseTDR>
           <Flash2>Segger\JL2CM3.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4>.\debug.ini</Flash4>
@@ -301,7 +301,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0x1000</Size>
+                <Size>0x2000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -337,7 +337,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>STL_VERBOSE</Define>
               <Undefine></Undefine>
               <IncludePath>.\CSL\CMSIS\CoreSupport;.\CSL\CMSIS\DeviceSupport;.\CSL\SWM241_StdPeriph_Driver;.\SelfTestLib</IncludePath>
             </VariousControls>

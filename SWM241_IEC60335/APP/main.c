@@ -11,15 +11,19 @@ uint32_t RTC_GetSubSecond(void)
 
 int main(void)
 {
- 	uint32_t i=0;
- 	
  	SystemInit();
 	
 	SerialInit();
 	
 	GPIO_Init(GPIOA, PIN4, 1, 0, 0, 0);	//GPIOA.4接LED，指示用
 	
-	printf("\r\n IEC60335 test  \r\n");
+	printf("\r\n  SWM241 IEC60335 Test\r\n");
+#ifdef __ENABLE_CLOCK_TEST__
+  printf("..Clock Test Enabled...\r\n");
+#else
+  printf("..Clock Test Disabled...\r\n");
+#endif  
+  
 	
 	GPIO_SetBit(GPIOA, PIN4);
 	STL_InitRunTimeChecks();
@@ -28,14 +32,10 @@ int main(void)
  	while(1==1)
  	{
 		/* Add your application tasks here  */
-		if(++i % 10000 == 0)
-			printf("Do something.\r\n");
-		
 		if(TimeBaseFlag == 0xAAAAAAAA)
 		{			
 			/* run time tests */
 			STL_DoRunTimeChecks();
-			printf("run time tests.\r\n");
 
 			TimeBaseFlag= 0;
 			TimeBaseFlagInv = ~TimeBaseFlag;

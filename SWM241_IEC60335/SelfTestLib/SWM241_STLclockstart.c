@@ -3,6 +3,7 @@
 #include "SWM241_STLclassBvar.h"
 #include "SWM241_STLmisc.h"
 
+extern uint32_t RTC_GetSubSecond(void);
 
 #define STL_SyncSysTick() { while((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == 0uL) {} } // 计数器递减到 0 且该过程中本寄存器未被读取，本位返回 1
 

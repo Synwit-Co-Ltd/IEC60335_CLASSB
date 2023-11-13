@@ -1,6 +1,8 @@
 #ifndef __SELFTEST_PARAM_H
 #define __SELFTEST_PARAM_H
 
+#include "stdint.h"
+
 typedef enum {
 	LSI_START_FAIL,
 	HSE_START_FAIL,
@@ -96,13 +98,20 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
 #define RAM_MARCHX_ISR_CALLER   ((uint32_t)13)
 #define RAM_MARCHX_ISR_CALLEE   ((uint32_t)17)
 
-
+#ifdef __ENABLE_WDT_TEST__
 #define CHECKPOINT1 ((uint32_t)	CPU_TEST_CALLER   + \
 								CPU_TEST_CALLEE   + \
 								WDG_TEST_CALLER   + \
 								CRC32_TEST_CALLER + \
 								CRC32_TEST_CALLEE)
+#else
+#define CHECKPOINT1 ((uint32_t)	CPU_TEST_CALLER   + \
+								CPU_TEST_CALLEE   + \
+								CRC32_TEST_CALLER + \
+								CRC32_TEST_CALLEE)
+#endif
 
+#ifdef __ENABLE_CLOCK_TEST__
 #define CHECKPOINT2 ((uint32_t)	CLOCK_TEST_CALLER + \
 								CLOCK_TEST_CALLEE + \
 								LSI_INIT_CALLEE + \
@@ -122,6 +131,18 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
 								FLASH_TEST_CALLER + \
 								CRC32_RUN_TEST_CALLEE + \
 								CRC32_TEST_CALLEE)
+#else
+#define CHECKPOINT2 ((uint32_t)	STACK_OVERFLOW_TEST)
+#define DELTA_MAIN  ((uint32_t) CPU_TEST_CALLER + \
+                                CPU_TEST_CALLEE + \
+                                STACK_OVERFLOW_TEST + \
+                                STACK_OVERFLOW_CALLEE + \
+                                FLASH_TEST_CALLER + \
+                                CRC32_RUN_TEST_CALLEE + \
+                                CRC32_TEST_CALLEE)
+#endif
+
+
 
 #define LAST_DELTA_MAIN ((uint32_t) DELTA_MAIN - CRC32_TEST_CALLEE)
 #define FULL_FLASH_CHECKED ((uint32_t)DELTA_MAIN * STEPS_NUMBER + LAST_DELTA_MAIN)

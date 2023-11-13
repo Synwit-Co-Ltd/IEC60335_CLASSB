@@ -30,7 +30,7 @@ LR_IROM1 0x00000000 0x00010000  {    ; load region size_region
 		.ANY (+RW +ZI)
 	}
 
-	STACK_NO_HEAP 0x20003000 UNINIT {	; Stack and magic pattern for stack overflow detection
+	STACK_NO_HEAP 0x20001000 UNINIT {	; Stack and magic pattern for stack overflow detection
 		SWM241_STLstartup.o (STACK_BOTTOM)
 		startup_SWM241.o (STACK, +Last)
 	}

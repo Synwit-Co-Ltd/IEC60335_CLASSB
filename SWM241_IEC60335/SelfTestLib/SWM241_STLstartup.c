@@ -48,9 +48,11 @@ void STL_StartUp(void)
 	}
 	
 	/*------------------------- Watch dogs Self Test ---------------------------*/
+#ifdef __ENABLE_WDT_TEST__
 	CtrlFlowCnt += WDG_TEST_CALLER;
 	STL_WDGSelfTest();
 	CtrlFlowCntInv -= WDG_TEST_CALLER;
+#endif
 
 	/*---------------------- Program memory functional test ---------------------*/
 	CtrlFlowCnt += CRC32_TEST_CALLER;
@@ -92,10 +94,10 @@ void STL_StartUp(void)
 	{
 		FailSafePOR();  //RAM CRC错误
 	}
-//		RefCrc32 = 0;
-//		RefCrc32Inv = ~RefCrc32;
+
 	/*----------------------- Clock Frequency Self Test  ------------------------*/
 	/* CtrlFlowCnt和CtrlFlowCntInv已经被STL_FullRamMarchC()清零                 */
+#ifdef __ENABLE_CLOCK_TEST__
 	CtrlFlowCnt += CLOCK_TEST_CALLER;
 	switch( STL_ClockStartUpTest() )  //启动内部和外部振荡器，并验证时钟源是否在预期范围内
 	{
@@ -123,7 +125,8 @@ void STL_StartUp(void)
 		FailSafePOR();
 		break;
 	}
-	CtrlFlowCntInv -= CLOCK_TEST_CALLER;
+  CtrlFlowCntInv -= CLOCK_TEST_CALLER;
+#endif
 
 	/* -----  Store verify pattern to stack bottom for its later testing  ----- */
 	CtrlFlowCnt += STACK_OVERFLOW_TEST;

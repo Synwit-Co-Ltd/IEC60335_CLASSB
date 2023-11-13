@@ -4,6 +4,8 @@
 
 #include <stdio.h>
 
+extern uint32_t RTC_GetSubSecond(void);
+
 ClockStatus STL_MainClockTest(void);
 ErrorStatus STL_CheckStack(void);
 
@@ -49,10 +51,11 @@ void STL_InitRunTimeChecks(void)
 
 	/* Initialize variables for run time invariable memory check */  
 	STL_FlashCrc32Init();
-	
+#ifdef __ENABLE_WDT_TEST__	
 	WDT_Init(WDT, 0, SystemCoreClock/20);	//每0.05秒需要喂狗一次
  	WDT_Start(WDT);										//启动WDT
-	   
+#endif
+
 	/* Initialize variables for main routine control flow monitoring */
 	CtrlFlowCnt = 0uL;
 	CtrlFlowCntInv = 0xFFFFFFFFuL;
@@ -104,6 +107,7 @@ void STL_DoRunTimeChecks(void)
 			/*----------------------------------------------------------------------*/
 			/*------------------------- Clock monitoring ---------------------------*/
 			/*----------------------------------------------------------------------*/
+#ifdef __ENABLE_CLOCK_TEST__ 
 			CtrlFlowCnt += CLOCK_TEST_CALLER;
 			switch( STL_MainClockTest())
 			{
@@ -128,7 +132,7 @@ void STL_DoRunTimeChecks(void)
 				FailSafePOR();
 				break;
 			}
-
+#endif
 			/*----------------------------------------------------------------------*/
 			/*------------------ Invariable memory CRC check -----------------------*/
 			/*----------------------------------------------------------------------*/
@@ -143,6 +147,9 @@ void STL_DoRunTimeChecks(void)
 				break;
 
 			case TEST_OK:
+#ifdef STL_VERBOSE
+        putchar((int)'*');      /* FLASH test OK mark */
+#endif 
 				CtrlFlowCntInv -= FLASH_TEST_CALLER;
 				break;
 
