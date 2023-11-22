@@ -15,6 +15,7 @@ REM Derived configuration
 SET MAP_FILE=%TARGET_PATH%\%TARGET_NAME%.map
 SET INPUT_HEX=%TARGET_PATH%\%TARGET_NAME%.hex
 SET OUTPUT_HEX=%TARGET_PATH%\%TARGET_NAME%_CRC.hex
+SET OUTPUT_BIN=%TARGET_PATH%\%TARGET_NAME%_CRC.bin
 SET TMP_FILE=crc_tmp_file.txt
 
 ECHO --------------------------------------------------------------------------
@@ -56,6 +57,8 @@ REM ECHO to see what is going on
 	%INPUT_HEX% -intel -exclude -within %TMP_FILE% -intel ^
 	%TMP_FILE% -intel ^
 	-o %OUTPUT_HEX% -intel -obs=16
+
+%SREC_PATH%\srec_cat.exe %OUTPUT_HEX% -intel -o %OUTPUT_BIN% -binary
 
 REM Delete temporary file
 DEL %TMP_FILE%
