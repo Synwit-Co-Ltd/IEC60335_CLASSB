@@ -50,9 +50,12 @@ REM Compute CRC and store it to new HEX file
 REM ECHO CRC address: %CRC_ADDR%
 @set /A CRC_ADDR_X=%CRC_ADDR%+4
 
+REM echo %CRC_ADDR% 
+
 REM ECHO to see what is going on
 %SREC_PATH%\srec_cat.exe ^
 	%INPUT_HEX% -intel ^
+  -fill 0xff 0xFF %CRC_ADDR% ^
 	-crop 0x0 %CRC_ADDR% ^
   -crc32-l-e %CRC_ADDR% ^
 	-o %TMP_FILE% -intel -obs=16
@@ -60,9 +63,12 @@ REM ECHO to see what is going on
 %SREC_PATH%\srec_cat.exe ^
 	%INPUT_HEX% -intel -exclude -within %TMP_FILE% -intel ^
 	%TMP_FILE% -intel ^
-	-o %OUTPUT_HEX% -intel -obs=16
+	-o %OUTPUT_HEX% -intel -obs=16 
 
 %SREC_PATH%\srec_cat.exe %OUTPUT_HEX% -intel -o %OUTPUT_BIN% -binary
+
+%SREC_PATH%\srec_cat.exe %OUTPUT_HEX% -intel -unfill 0xff 16 -o %OUTPUT_HEX% -intel -obs=16
+
 
 REM Delete temporary file
 DEL %TMP_FILE%

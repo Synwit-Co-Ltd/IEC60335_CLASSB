@@ -708,7 +708,7 @@ __user_initial_stackheap
 
                 ENDIF
 					
-				AREA    CHECKSUM, DATA, READONLY, ALIGN=6
+				AREA    CHECKSUM, DATA, READONLY, ALIGN=2
                 EXPORT  __Check_Sum
 
 ; Alignement here must correspond to the size of tested block at FLASH run time test (16 words ~ 64 bytes)!!!

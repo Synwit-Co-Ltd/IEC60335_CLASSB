@@ -80,15 +80,15 @@ void FailSafeHandle(void)
   * @param  : None
   * @retval : None
   */
-  void $Sub$$main(void)
-  {
-    if ( CRC_FLAG != 0xAA )
-    {
-      SelfTest_StartUp();		/* trick to call StartUp before main entry  */
-    }
-    CRC_FLAG = 0;
-    $Super$$main(); 
-  }
+//  void $Sub$$main(void)
+//  {
+//    if ( CRC_FLAG != 0xAA )
+//    {
+//      SelfTest_StartUp();		/* trick to call StartUp before main entry  */
+//    }
+//    CRC_FLAG = 0;
+//    $Super$$main(); 
+//  }
 #endif /* __CC_ARM */
 
 /******************************************************************************/

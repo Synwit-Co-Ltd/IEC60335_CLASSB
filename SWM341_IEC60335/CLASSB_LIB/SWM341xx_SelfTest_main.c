@@ -103,7 +103,7 @@ void SelfTest_InitRunTimeChecks(void)
   CtrlFlowCnt = 0u;
   CtrlFlowCntInv = 0xFFFFFFFFuL;
 	/*------------------完全调试好才能开启****************/
-	WDT_Init(WDT, 0, 10000);
+//	WDT_Init(WDT, 0, 10000);
 	WDT_Start(WDT);
 }
 

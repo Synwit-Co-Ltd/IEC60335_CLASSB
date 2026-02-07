@@ -54,14 +54,14 @@
 
 #define PLL_IN_DIV		4
 
-#define PLL_FB_DIV		14
+#define PLL_FB_DIV		56
 
 
 #define PLL_OUT_DIV8	0
 #define PLL_OUT_DIV4	1
 #define PLL_OUT_DIV2	2
 
-#define PLL_OUT_DIV		PLL_OUT_DIV2
+#define PLL_OUT_DIV		PLL_OUT_DIV8
 
 
 
