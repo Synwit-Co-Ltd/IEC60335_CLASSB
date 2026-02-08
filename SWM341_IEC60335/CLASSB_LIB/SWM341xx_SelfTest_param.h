@@ -31,7 +31,7 @@
 #define NO_RESET_AT_FAIL_MODE
 
 /* comment out next line when HSE clock is not used - clock test then runs based on HSI */
-#define HSE_CLOCK_APPLIED
+//#define HSE_CLOCK_APPLIED
 
 /* system clock & HSE when HSE is applied as PLL source 当HSE作为锁相环源时，系统时钟和HSE*/
 #define SYSTCLK_AT_RUN_HSE (uint32_t)(140000000uL)
@@ -72,8 +72,8 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
   #define HSE_LimitLow(fcy) ((uint32_t)(12000000*3u)/4u)  /* (HSEValue - 25%) */
 
   /* here you can define HSI frequency limits  */
-  #define HSI_LimitHigh(fcy) ((uint32_t)((20000000*6u)/5u) /* (HSIValue + 20%) */
-  #define HSI_LimitLow(fcy) ((uint32_t)((20000000*4u)/5u)  /* (HSIValue - 20%) */
+  #define HSI_LimitHigh(fcy) ((uint32_t)(20000000*6u)/5u) /* (HSIValue + 20%) */
+  #define HSI_LimitLow(fcy)  ((uint32_t)(20000000*4u)/5u)  /* (HSIValue - 20%) */
 
 /* -------------------------------------------------------------------------- */
 /* ------------------ CONTROL FLOW TAGS and CHECKPOINTS 控制流标签和检查点--------------------- */

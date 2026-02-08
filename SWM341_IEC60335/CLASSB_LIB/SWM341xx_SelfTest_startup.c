@@ -13,7 +13,7 @@
 #include "system_SWM341.h" 
 #include "SWM341xx_SelfTest_param.h"
 #include "uart.h"
-#include "misc.h"
+//#include "misc.h"
 #define ALLOC_GLOBALS
 #include "SWM341xx_SelfTest_lib.h"
 #ifdef __clang__            /* KEIL Compiler */
@@ -80,15 +80,15 @@ void FailSafeHandle(void)
   * @param  : None
   * @retval : None
   */
-//  void $Sub$$main(void)
-//  {
-//    if ( CRC_FLAG != 0xAA )
-//    {
-//      SelfTest_StartUp();		/* trick to call StartUp before main entry  */
-//    }
-//    CRC_FLAG = 0;
-//    $Super$$main(); 
-//  }
+  void $Sub$$main(void)
+  {
+    if ( CRC_FLAG != 0xAA )
+    {
+      SelfTest_StartUp();		/* trick to call StartUp before main entry  */
+    }
+    CRC_FLAG = 0;
+    $Super$$main(); 
+  }
 #endif /* __CC_ARM */
 
 /******************************************************************************/
@@ -111,9 +111,9 @@ void SelfTest_StartUp(void)
   TickCounterInv = 0;
   
   /* Initializes the Systick */
-  NVIC_SetPriorityGrouping(NVIC_PriorityGroup_4);
-  prioritygroup = NVIC_GetPriorityGrouping();
-  NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(prioritygroup, TICK_INT_PRIORITY, 0));
+//  NVIC_SetPriorityGrouping(NVIC_PriorityGroup_4);
+//  prioritygroup = NVIC_GetPriorityGrouping();
+//  NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(prioritygroup, TICK_INT_PRIORITY, 0));
 	
 	SystemInit();
   SystemCoreClockUpdate();
