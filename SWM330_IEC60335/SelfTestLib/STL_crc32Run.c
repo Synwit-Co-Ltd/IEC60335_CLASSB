@@ -1,6 +1,6 @@
 #include "SWM330.h"
 #include "STL_param.h"
-#include "STLclassBvar.h"
+#include "STL_classBvar.h"
 
 
 /* Inializes the pointers to the Flash memory required during run-time */

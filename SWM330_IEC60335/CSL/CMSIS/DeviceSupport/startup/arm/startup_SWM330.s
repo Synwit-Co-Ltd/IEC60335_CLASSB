@@ -429,7 +429,7 @@ __user_initial_stackheap
                 EXPORT  __Check_Sum
 
 ; Alignement here must correspond to the size of tested block at FLASH run time test (16 words ~ 64 bytes)!!!
-                ALIGN
+                ALIGN   
 
 __Check_Sum     DCD     0x12345678                ; Check sum computed externaly	
     

@@ -1,7 +1,7 @@
 #include "SWM330.h"
 #include "STL_param.h"
-#include "STLclassBvar.h"
-#include "STLmisc.h"
+#include "STL_classBvar.h"
+#include "STL_misc.h"
 
 /* Initializes the SysTick for clock frequency measurement and main time base. */
 void STL_SysTickConfig(void)

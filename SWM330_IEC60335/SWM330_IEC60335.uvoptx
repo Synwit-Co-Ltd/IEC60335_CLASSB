@@ -152,119 +152,39 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>136</LineNumber>
+          <LineNumber>33</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>11014</Address>
+          <Address>11070</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLstartup.c</Filename>
+          <Filename>.\SelfTestLib\STL_startup.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\SWM330_IEC60335\SelfTestLib/STLstartup.c\136</Expression>
+          <Expression>\\SWM330_IEC60335\SelfTestLib/STL_startup.c\33</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>88</LineNumber>
+          <LineNumber>104</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>10854</Address>
+          <Address>11390</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLstartup.c</Filename>
+          <Filename>.\SelfTestLib\STL_startup.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\SWM330_IEC60335\SelfTestLib/STLstartup.c\88</Expression>
+          <Expression>\\SWM330_IEC60335\SelfTestLib/STL_startup.c\104</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>81</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>10832</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLstartup.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SWM330_IEC60335\SelfTestLib/STLstartup.c\81</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>124</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>8978</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLfullRamMc.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SWM330_IEC60335\SelfTestLib/STLfullRamMc.c\124</Expression>
-        </Bp>
-        <Bp>
-          <Number>4</Number>
-          <Type>0</Type>
-          <LineNumber>61</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>10720</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLstartup.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SWM330_IEC60335\SelfTestLib/STLstartup.c\61</Expression>
-        </Bp>
-        <Bp>
-          <Number>5</Number>
-          <Type>0</Type>
-          <LineNumber>30</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>10592</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLstartup.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SWM330_IEC60335\SelfTestLib/STLstartup.c\30</Expression>
-        </Bp>
-        <Bp>
-          <Number>6</Number>
-          <Type>0</Type>
-          <LineNumber>105</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>10926</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLstartup.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SWM330_IEC60335\SelfTestLib/STLstartup.c\105</Expression>
-        </Bp>
-        <Bp>
-          <Number>7</Number>
-          <Type>0</Type>
-          <LineNumber>129</LineNumber>
+          <LineNumber>71</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -273,14 +193,14 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLclockstart.c</Filename>
+          <Filename>.\SelfTestLib\STL_startup.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>8</Number>
+          <Number>3</Number>
           <Type>0</Type>
-          <LineNumber>59</LineNumber>
+          <LineNumber>88</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -289,7 +209,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>.\SelfTestLib\STLstartup.c</Filename>
+          <Filename>.\SelfTestLib\STL_startup.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
@@ -300,12 +220,22 @@
           <WinNumber>1</WinNumber>
           <ItemText>SystemCoreClock,0x0A</ItemText>
         </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\SWM330_IEC60335\SelfTestLib/STL_startup.c\CtrlFlowCnt</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>\\SWM330_IEC60335\SelfTestLib/STL_startup.c\CtrlFlowCntInv</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>1</SubType>
-          <ItemText>0x4004A000</ItemText>
+          <ItemText>0x40000090</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
@@ -751,8 +681,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLclockrun.c</PathWithFileName>
-      <FilenameWithoutPath>STLclockrun.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_clockrun.c</PathWithFileName>
+      <FilenameWithoutPath>STL_clockrun.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -763,8 +693,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLclockstart.c</PathWithFileName>
-      <FilenameWithoutPath>STLclockstart.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_clockstart.c</PathWithFileName>
+      <FilenameWithoutPath>STL_clockstart.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -775,8 +705,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLcrc32.c</PathWithFileName>
-      <FilenameWithoutPath>STLcrc32.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_crc32.c</PathWithFileName>
+      <FilenameWithoutPath>STL_crc32.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -787,8 +717,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLcrc32Run.c</PathWithFileName>
-      <FilenameWithoutPath>STLcrc32Run.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_crc32Run.c</PathWithFileName>
+      <FilenameWithoutPath>STL_crc32Run.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -799,8 +729,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLfullRamMc.c</PathWithFileName>
-      <FilenameWithoutPath>STLfullRamMc.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_fullRamMc.c</PathWithFileName>
+      <FilenameWithoutPath>STL_fullRamMc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -811,8 +741,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLmain.c</PathWithFileName>
-      <FilenameWithoutPath>STLmain.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_main.c</PathWithFileName>
+      <FilenameWithoutPath>STL_main.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -823,8 +753,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLmisc.c</PathWithFileName>
-      <FilenameWithoutPath>STLmisc.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_misc.c</PathWithFileName>
+      <FilenameWithoutPath>STL_misc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -835,8 +765,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLstartup.c</PathWithFileName>
-      <FilenameWithoutPath>STLstartup.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_startup.c</PathWithFileName>
+      <FilenameWithoutPath>STL_startup.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -847,8 +777,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLtranspRamMc.c</PathWithFileName>
-      <FilenameWithoutPath>STLtranspRamMc.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_transpRamMc.c</PathWithFileName>
+      <FilenameWithoutPath>STL_transpRamMc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -859,8 +789,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLtranspRamMx.c</PathWithFileName>
-      <FilenameWithoutPath>STLtranspRamMx.c</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_transRamMx.c</PathWithFileName>
+      <FilenameWithoutPath>STL_transRamMx.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -871,8 +801,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLcpurunKEIL.s</PathWithFileName>
-      <FilenameWithoutPath>STLcpurunKEIL.s</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_cpurunKeil.s</PathWithFileName>
+      <FilenameWithoutPath>STL_cpurunKeil.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -883,8 +813,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\SelfTestLib\STLcpustartKEIL.s</PathWithFileName>
-      <FilenameWithoutPath>STLcpustartKEIL.s</FilenameWithoutPath>
+      <PathWithFileName>.\SelfTestLib\STL_cpustartKEIL.s</PathWithFileName>
+      <FilenameWithoutPath>STL_cpustartKEIL.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

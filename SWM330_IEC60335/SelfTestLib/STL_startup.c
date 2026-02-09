@@ -1,9 +1,9 @@
 #include "SWM330.h"
-#include "STLmisc.h"
+#include "STL_misc.h"
 #include "STL_param.h"
 
 #define ALLOC_GLOBALS
-#include "STLclassBvar.h"
+#include "STL_classBvar.h"
 #define __ENABLE_CLOCK_TEST__
 
 /* executed in case of failure detected during one of the POR self-test routines */
@@ -25,8 +25,11 @@ void FailSafePOR(void)
 /* the very first test routines executed right after the reset*/
 void STL_StartUp(void)
 {
-//	int i;
-//	for(i=0;i<24000000;i++) __NOP();  //防止无法下载
+	int i;
+  
+  // SystemCoreClock is 8MHz
+	for(i=0; i<1000000;i++) __NOP();  //防止无法下载
+  
   STLSystemInit();
 	
 	/*------------------- CPU registers and Flags Self TestCPU --------------------*/
@@ -37,7 +40,7 @@ void STL_StartUp(void)
 	CtrlFlowCnt = CPU_TEST_CALLER;
 	CtrlFlowCntInv = 0xFFFFFFFFuL;
 
-	if(STL_StartUpCPUTest() != CPU_TEST_SUCCESSFUL)
+	if(STL_StartUpCPUTest() != CPU_TEST_SUCCESSFUL) /* CtrlFlowCnt += 3, CtrlFlowCntInv-=3 */
 	{
 		FailSafePOR();
 	}
@@ -64,9 +67,9 @@ void STL_StartUp(void)
 	}
 	else	/* Test OK */
 	{
-		*((volatile uint32_t *)0x40000090) = CurrentCrc32;	// Backup 寄存器
-		*((volatile uint32_t *)0x40000094) = ~CurrentCrc32;
-		
+    SYS->BACKUP[0] = CurrentCrc32;
+    SYS->BACKUP[1] =  ~CurrentCrc32;
+
 		CtrlFlowCntInv -= CRC32_TEST_CALLER;
 	}
 
@@ -84,23 +87,20 @@ void STL_StartUp(void)
 	}
   
 	/*-- Store reference 32-bit CRC in RAM after RAM test (if not corrupted) ---*/
-	
-	if((*((volatile uint32_t *)0x40000090) ^ *((volatile uint32_t *)0x40000094)) == 0xFFFFFFFFu)
+  if ( (SYS->BACKUP[0] ^ SYS->BACKUP[1]) == 0xFFFFFFFFu)
 	{
-		RefCrc32 = *((volatile uint32_t *)0x40000090);
+		RefCrc32 = SYS->BACKUP[0];
 		RefCrc32Inv = ~RefCrc32;
 	}
 	else
 	{
 		FailSafePOR();  //RAM CRC错误
 	}
-//		RefCrc32 = 0;
-//		RefCrc32Inv = ~RefCrc32;
 
 	/*----------------------- Clock Frequency Self Test  ------------------------*/
 	/* CtrlFlowCnt和CtrlFlowCntInv已经被STL_FullRamMarchC()清零   
 	*/
-	#ifdef __ENABLE_CLOCK_TEST__
+#ifdef __ENABLE_CLOCK_TEST__
 	CtrlFlowCnt += CLOCK_TEST_CALLER;
 	switch( STL_ClockStartUpTest() )  //启动内部和外部振荡器，并验证时钟源是否在预期范围内
 	{

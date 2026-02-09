@@ -549,115 +549,64 @@
           <GroupName>SelfTestLib</GroupName>
           <Files>
             <File>
-              <FileName>STLclockrun.c</FileName>
+              <FileName>STL_clockrun.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLclockrun.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_clockrun.c</FilePath>
             </File>
             <File>
-              <FileName>STLclockstart.c</FileName>
+              <FileName>STL_clockstart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLclockstart.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_clockstart.c</FilePath>
             </File>
             <File>
-              <FileName>STLcrc32.c</FileName>
+              <FileName>STL_crc32.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLcrc32.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_crc32.c</FilePath>
             </File>
             <File>
-              <FileName>STLcrc32Run.c</FileName>
+              <FileName>STL_crc32Run.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLcrc32Run.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_crc32Run.c</FilePath>
             </File>
             <File>
-              <FileName>STLfullRamMc.c</FileName>
+              <FileName>STL_fullRamMc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLfullRamMc.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>2</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>1</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <uGnu>2</uGnu>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
+              <FilePath>.\SelfTestLib\STL_fullRamMc.c</FilePath>
             </File>
             <File>
-              <FileName>STLmain.c</FileName>
+              <FileName>STL_main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLmain.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_main.c</FilePath>
             </File>
             <File>
-              <FileName>STLmisc.c</FileName>
+              <FileName>STL_misc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLmisc.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_misc.c</FilePath>
             </File>
             <File>
-              <FileName>STLstartup.c</FileName>
+              <FileName>STL_startup.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLstartup.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_startup.c</FilePath>
             </File>
             <File>
-              <FileName>STLtranspRamMc.c</FileName>
+              <FileName>STL_transpRamMc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLtranspRamMc.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_transpRamMc.c</FilePath>
             </File>
             <File>
-              <FileName>STLtranspRamMx.c</FileName>
+              <FileName>STL_transRamMx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STLtranspRamMx.c</FilePath>
+              <FilePath>.\SelfTestLib\STL_transRamMx.c</FilePath>
             </File>
             <File>
-              <FileName>STLcpurunKEIL.s</FileName>
+              <FileName>STL_cpurunKeil.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\SelfTestLib\STLcpurunKEIL.s</FilePath>
+              <FilePath>.\SelfTestLib\STL_cpurunKeil.s</FilePath>
             </File>
             <File>
-              <FileName>STLcpustartKEIL.s</FileName>
+              <FileName>STL_cpustartKEIL.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\SelfTestLib\STLcpustartKEIL.s</FilePath>
+              <FilePath>.\SelfTestLib\STL_cpustartKEIL.s</FilePath>
             </File>
           </Files>
         </Group>

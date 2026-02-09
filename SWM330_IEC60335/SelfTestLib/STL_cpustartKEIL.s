@@ -55,11 +55,11 @@ STL_StartUpCPUTest PROC
     BVC CPUTestFail           ; Fails if V clear
 
    	; This is for control flow test (ENTRY point)
-	  LDR R0,=CtrlFlowCnt
-	  ; Assumes R1 OK; If not, error will be detected by R1 test and Ctrl flow test later on
-	  LDR R1,[R0]
-	  ADDS R1,R1,#0x3	 ; CtrlFlowCnt += OxO3
-	  STR R1,[R0]
+    LDR R0,=CtrlFlowCnt
+	; Assumes R1 OK; If not, error will be detected by R1 test and Ctrl flow test later on
+	LDR R1,[R0]
+	ADDS R1,R1,#0x3	 ; CtrlFlowCnt += OxO3
+	STR R1,[R0]
 
     ; Register R1
     LDR R0, =conAA
