@@ -463,6 +463,7 @@ __STEP_RET
   POP   {R4-R7}
   BX    LR           ; return to the caller
 	
+  ALIGN  4
   END
 
 

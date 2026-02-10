@@ -4,12 +4,6 @@
 #include <stdio.h>
 #include "SWM341xx_SelfTest_param.h"
 #include "SWM341xx_SelfTest_lib.h"
-#ifdef __clang__            /* KEIL Compiler */
-#include "CRC32.h"
-#endif
-
-#include "testdata.h"
-
 
 /* Private define ------------------------------------------------------------*/
 
@@ -49,36 +43,26 @@ uint32_t RTC_GetSubSecond(void)
 	
 }
 
-#define LED_Port  GPIOC
-#define LED_Pin   PIN5
-
-extern const uint32_t __Check_Sum;
-  
-#define ROM_START ((uint32_t *)0x00000000)	 
-#define ROM_END   ((uint32_t *)(&__Check_Sum))
-
 int main(void)
 {
  	uint32_t i;
-	uint32_t crc_result;
 	
  	SystemInit();
 	
-  GPIO_Init(LED_Port, LED_Pin, 1, 0, 0, 0);
-  while (1)
-  {
-    GPIO_SetBit(LED_Port, LED_Pin);
-    for (i=0; i<SystemCoreClock/32; i++) {__NOP();}
-    GPIO_ClrBit(LED_Port, LED_Pin);
-    for (i=0; i<SystemCoreClock/64; i++) {__NOP();}
-    
-    crc_result = crc32_fsl(0,(void*)ROM_START,ROM_SIZE);
-    
-    if (crc_result != __Check_Sum) {
-      while (1);
-    }
-    
-  }	
+	SysTick_Config(SystemCoreClock/1000U);
+	
+	SerialInit(); 
+	
+ /* Verbose messages ------------------------------------------------------*/
+	printf("%s\r\n",MESSAGE1);
+	printf("%s\r\n",MESSAGE2);
+	printf("... main routine starts ...\r\n");
+	
+	SelfTest_InitRunTimeChecks();
+ 	while(1==1)
+ 	{
+ 		SelfTest_DoRunTimeChecks();
+ 	}
 }
 
 

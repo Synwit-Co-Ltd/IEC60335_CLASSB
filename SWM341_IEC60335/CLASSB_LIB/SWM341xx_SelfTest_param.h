@@ -31,7 +31,7 @@
 #define NO_RESET_AT_FAIL_MODE
 
 /* comment out next line when HSE clock is not used - clock test then runs based on HSI */
-//#define HSE_CLOCK_APPLIED
+#define HSE_CLOCK_APPLIED
 
 /* system clock & HSE when HSE is applied as PLL source 当HSE作为锁相环源时，系统时钟和HSE*/
 #define SYSTCLK_AT_RUN_HSE (uint32_t)(140000000uL)
