@@ -43,13 +43,13 @@
  * PLL output frequency = PLL input frequency / INDIV * FBDIV / OUTDIV = VCO output frequency / OUTDIV
  * note: VCO output frequency shoud be in range [80MHz, 240MHz]
  ******************************************************************************************************************************/ 
-#define SYS_PLL_SRC   	SYS_CLK_XTAL	// SYS_CLK_8MHz or SYS_CLK_XTAL
+#define SYS_PLL_SRC   	SYS_CLK_8MHz	// SYS_CLK_8MHz or SYS_CLK_XTAL
 
 #define PLL_IN_DIV		2
 
-#define PLL_FB_DIV		50
+#define PLL_FB_DIV		36
 
-#define PLL_OUT_DIV		2
+#define PLL_OUT_DIV		1
 
 
 
@@ -126,8 +126,10 @@ void SystemCoreClockUpdate(void)
 void SystemInit(void)
 {
 	SYS->CLKEN1 |= (1 << SYS_CLKEN1_ANAC_Pos);
-	
+
+#if 0
 	LDO_1V8_On(RTC_CLKSRC_LRC32K);	// Power for PSRAM and PE0-11, PE14, PA5 pin
+#endif
 	
 	Flash_Param_at_xMHz(150);
 	

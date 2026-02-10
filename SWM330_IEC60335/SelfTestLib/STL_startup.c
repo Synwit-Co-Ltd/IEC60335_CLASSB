@@ -4,7 +4,6 @@
 
 #define ALLOC_GLOBALS
 #include "STL_classBvar.h"
-#define __ENABLE_CLOCK_TEST__
 
 /* executed in case of failure detected during one of the POR self-test routines */
 void FailSafePOR(void)
@@ -27,8 +26,7 @@ void STL_StartUp(void)
 {
 	int i;
   
-  // SystemCoreClock is 8MHz
-	for(i=0; i<1000000;i++) __NOP();  //·ÀÖ¹ÎÞ·¨ÏÂÔØ
+  for(i=0; i<1000000;i++) __NOP();  //é˜²æ­¢æ— æ³•ä¸‹è½½
   
   STLSystemInit();
 	
@@ -61,7 +59,7 @@ void STL_StartUp(void)
 	CtrlFlowCnt += CRC32_TEST_CALLER;
 	/* Compute the 32-bit crc of the whole Flash except the checksum pattern stored at top of FLASH */
 	CurrentCrc32 = CRC_CalcBlockCrc((const uint8_t *)ROM_START, ROM_SIZE, CRC_INIT);
-	if(CurrentCrc32 == __Check_Sum)		// µÈ³ÌÐòÍêÈ«µ÷ºÃ£¬__Check_SumµÄÖµÉèÖÃÎªÐ£ÑéÖµºó½«¡°==¡±ÐÞ¸ÄÎª¡°!=¡±
+	if(CurrentCrc32 == __Check_Sum)		// ç­‰ç¨‹åºå®Œå…¨è°ƒå¥½ï¼Œ__Check_Sumçš„å€¼è®¾ç½®ä¸ºæ ¡éªŒå€¼åŽå°†â€œ==â€ä¿®æ”¹ä¸ºâ€œ!=â€
 	{
 		FailSafePOR();
 	}
@@ -81,7 +79,7 @@ void STL_StartUp(void)
 
 	/* --------------------- Variable memory functional test -------------------*/
 	/* WARNING: Stack is zero-initialized when exiting from this routine */
-	if(STL_FullRamMarchC() != SUCCESS)
+  if (STL_fullRamMC(RAM_START, RAM_END, BCKGRND) != SUCCESS)
 	{
 		FailSafePOR();
 	}
@@ -94,15 +92,16 @@ void STL_StartUp(void)
 	}
 	else
 	{
-		FailSafePOR();  //RAM CRC´íÎó
+		FailSafePOR();  //RAM CRCé”™è¯¯
 	}
 
 	/*----------------------- Clock Frequency Self Test  ------------------------*/
-	/* CtrlFlowCntºÍCtrlFlowCntInvÒÑ¾­±»STL_FullRamMarchC()ÇåÁã   
+	/* CtrlFlowCntå’ŒCtrlFlowCntInvå·²ç»è¢«STL_FullRamMarchC()æ¸…é›¶   
 	*/
+
 #ifdef __ENABLE_CLOCK_TEST__
 	CtrlFlowCnt += CLOCK_TEST_CALLER;
-	switch( STL_ClockStartUpTest() )  //Æô¶¯ÄÚ²¿ºÍÍâ²¿Õñµ´Æ÷£¬²¢ÑéÖ¤Ê±ÖÓÔ´ÊÇ·ñÔÚÔ¤ÆÚ·¶Î§ÄÚ
+	switch( STL_ClockStartUpTest() )  //å¯åŠ¨å†…éƒ¨å’Œå¤–éƒ¨æŒ¯è¡å™¨ï¼Œå¹¶éªŒè¯æ—¶é’Ÿæºæ˜¯å¦åœ¨é¢„æœŸèŒƒå›´å†…
 	{
 	case FREQ_OK:
 		break;
@@ -129,6 +128,8 @@ void STL_StartUp(void)
 		break;
 	}
 	CtrlFlowCntInv -= CLOCK_TEST_CALLER;
+#else
+  CtrlFlowCntInv = 0xFFFFFFFFuL;
 #endif
 	/* -----  Store verify pattern to stack bottom for its later testing  ----- */
 	CtrlFlowCnt += STACK_OVERFLOW_TEST;
@@ -184,4 +185,7 @@ void STLSystemInit (void)
 	// Reset all peripherals
 	
 	// Disable all interrupts
+  
+  SystemInit();
+  
 }

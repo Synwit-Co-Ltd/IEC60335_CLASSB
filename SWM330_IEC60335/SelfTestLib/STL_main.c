@@ -9,6 +9,8 @@ ErrorStatus STL_CheckStack(void);
 
 extern uint32_t RTC_GetSubSecond(void);
 
+volatile uint32_t delta_main = 0;
+
 /**
   * @brief  Initializes the Class B variables and their inverted
   *   redundant counterparts. Init also the Systick and RTC timer
@@ -40,21 +42,24 @@ void STL_InitRunTimeChecks(void)
 	STL_TranspMarchXInit();
 #endif
 
+#if 0
 	/* Initialize variable for clock memory check */
 	CurrentHSEPeriod = 0uL;
 	CurrentHSEPeriodInv = 0xFFFFFFFFuL;
 	LastHSEPeriod = RTC_GetSubSecond();  //TIMR1->CVAL;
 	LastHSEPeriodInv = ~LastHSEPeriod;
-
+#endif
 	/* Initialize SysTick for clock frequency measurement and main time base */
 	STL_SysTickConfig();
 
 	/* Initialize variables for run time invariable memory check */  
 	STL_FlashCrc32Init();
-	
+
+#if 0
 	WDT_Init(WDT, 0, SystemCoreClock/20);	//每0.05秒需要喂狗一次
  	WDT_Start(WDT);										//启动WDT
-	   
+#endif
+
 	/* Initialize variables for main routine control flow monitoring */
 	CtrlFlowCnt = 0uL;
 	CtrlFlowCntInv = 0xFFFFFFFFuL;
@@ -106,6 +111,7 @@ void STL_DoRunTimeChecks(void)
 			/*----------------------------------------------------------------------*/
 			/*------------------------- Clock monitoring ---------------------------*/
 			/*----------------------------------------------------------------------*/
+#ifdef __ENABLE_CLOCK_TEST__      
 			CtrlFlowCnt += CLOCK_TEST_CALLER;
 			switch( STL_MainClockTest())
 			{
@@ -130,6 +136,7 @@ void STL_DoRunTimeChecks(void)
 				FailSafePOR();
 				break;
 			}
+#endif
 
 			/*----------------------------------------------------------------------*/
 			/*------------------ Invariable memory CRC check -----------------------*/
@@ -154,7 +161,7 @@ void STL_DoRunTimeChecks(void)
 				FailSafePOR();
 				break;
 			}
-
+      printf("\r\nROM test done\r\n");
 			/*----------------------------------------------------------------------*/
 			/*---------------- Check Safety routines Control flow  -----------------*/
 			/*------------- Refresh Window and independent watchdogs ---------------*/
@@ -177,6 +184,7 @@ void STL_DoRunTimeChecks(void)
 				}
 				else  /* Flash test not completed yet */
 				{
+          delta_main = DELTA_MAIN;
 					if((CtrlFlowCnt - LastCtrlFlowCnt) != DELTA_MAIN)
 					{
 						FailSafePOR();

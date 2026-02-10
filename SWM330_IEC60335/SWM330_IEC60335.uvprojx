@@ -80,9 +80,9 @@
             <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
-            <RunUserProg1>1</RunUserProg1>
+            <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>1</RunUserProg2>
-            <UserProg1Name>fromelf --bin -o "$L@L.bin" "#L"</UserProg1Name>
+            <UserProg1Name>"do_crc32_keil.bat"</UserProg1Name>
             <UserProg2Name>fromelf --text -a -c -o "$L@L.asm" "#L"</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
@@ -569,11 +569,6 @@
               <FilePath>.\SelfTestLib\STL_crc32Run.c</FilePath>
             </File>
             <File>
-              <FileName>STL_fullRamMc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SelfTestLib\STL_fullRamMc.c</FilePath>
-            </File>
-            <File>
               <FileName>STL_main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SelfTestLib\STL_main.c</FilePath>
@@ -607,6 +602,11 @@
               <FileName>STL_cpustartKEIL.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\SelfTestLib\STL_cpustartKEIL.s</FilePath>
+            </File>
+            <File>
+              <FileName>STL_fullRamMcKEIL.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\SelfTestLib\STL_fullRamMcKEIL.s</FilePath>
             </File>
           </Files>
         </Group>

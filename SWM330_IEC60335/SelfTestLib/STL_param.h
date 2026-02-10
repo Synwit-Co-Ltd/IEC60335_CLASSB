@@ -1,9 +1,8 @@
 #ifndef __SELFTEST_PARAM_H
 #define __SELFTEST_PARAM_H
 
-
-#define __ENABLE_CLOCK_TEST__
-
+// Disable for HTOL test
+//#define __ENABLE_CLOCK_TEST__ 
 
 typedef enum {
 	LSI_START_FAIL,
@@ -31,14 +30,14 @@ typedef enum {
 
 /* CPU_TEST_SUCCESSFUL is defined as 1 */
 
-/* uncomment next line to replace march-C by March-X RAM test »°œ˚◊¢ Õœ¬“ª––£¨”√March-X RAM≤‚ ‘ÃÊªªmarch-C*/
+/* uncomment next line to replace march-C by March-X RAM test ÂèñÊ∂àÊ≥®Èáä‰∏ã‰∏ÄË°åÔºåÁî®March-X RAMÊµãËØïÊõøÊç¢march-C*/
 /* #define USE_MARCH_X */
 
-/* uncomment next lines to generate reset at fail safe routine »°œ˚œ¬“ª––µƒ◊¢ Õ“‘…˙≥…π ’œ∞≤»´÷ÿ÷√¿˝≥Ã*/
+/* uncomment next lines to generate reset at fail safe routine ÂèñÊ∂à‰∏ã‰∏ÄË°åÁöÑÊ≥®Èáä‰ª•ÁîüÊàêÊïÖÈöúÂÆâÂÖ®ÈáçÁΩÆ‰æãÁ®ã*/
 /* #define GENERATE_RESET_AT_FAIL_SAFE */
 
 /* These are the direct and inverted data (pattern) used during the RAM test, performed using March C- Algorithm 
-’‚–© «RAM≤‚ ‘∆⁄º‰ π”√µƒ÷±Ω”∫Õ∑¥œÚ ˝æ›(ƒ£ Ω)£¨ π”√March C-À„∑®÷¥––*/
+Ëøô‰∫õÊòØRAMÊµãËØïÊúüÈó¥‰ΩøÁî®ÁöÑÁõ¥Êé•ÂíåÂèçÂêëÊï∞ÊçÆ(Ê®°Âºè)Ôºå‰ΩøÁî®March C-ÁÆóÊ≥ïÊâßË°å*/
 #define BCKGRND     ((uint32_t)0x00000000uL)
 #define INV_BCKGRND ((uint32_t)0xFFFFFFFFuL)
 
@@ -46,8 +45,8 @@ typedef enum {
 
 /* Define the time bases for clock frequency measure: RUN and START time bases
 must be equal or multiple. RUN time base must take into account SysTick prescaler and PLL setting (if enabled)*/
-#define SYSTICK_2_ms_HSI ((uint32_t)24000uL) /* HSI = 24MHz */
-#define SYSTICK_2_ms_HSE ((uint32_t)24000uL) /* HSE = 24MHz */
+#define SYSTICK_2_ms_HSI ((uint32_t)140000uL) /* HSI = 144MHz */
+#define SYSTICK_2_ms_HSE ((uint32_t)140000uL) /* HSE = 144MHz */
 
 #define SYSTICK_TB_START ((uint32_t)SYSTICK_2_ms_HSI)
 #define SYSTICK_TB_RUN   ((uint32_t)SYSTICK_2_ms_HSE)
@@ -69,9 +68,9 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
 /* define the maximum U32 */
 #define U32_MAX    ((uint32_t)4294967295uL)
 
-/* ------------------ CONTROL FLOW TAGS and CHECKPOINTSøÿ÷∆¡˜±Í«©∫ÕºÏ≤Èµ„ --------------------- */
+/* ------------------ CONTROL FLOW TAGS and CHECKPOINTSÊéßÂà∂ÊµÅÊ†áÁ≠æÂíåÊ£ÄÊü•ÁÇπ --------------------- */
 #define CPU_TEST_CALLER         ((uint32_t)2)
-#define CPU_TEST_CALLEE         ((uint32_t)3) /* Do not modify: hard coded in assembly file ≤ª–ﬁ∏ƒ:ª„±‡Œƒº˛÷–µƒ”≤±‡¬Î*/
+#define CPU_TEST_CALLEE         ((uint32_t)3) /* Do not modify: hard coded in assembly file ‰∏ç‰øÆÊîπ:Ê±áÁºñÊñá‰ª∂‰∏≠ÁöÑÁ°¨ÁºñÁ†Å*/
 #define WDG_TEST_CALLER         ((uint32_t)5)
 #define CRC32_INIT_CALLEE       ((uint32_t)7)
 #define CRC32_TEST_CALLER       ((uint32_t)11)
@@ -102,23 +101,19 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
 
 
 #define CHECKPOINT1 ((uint32_t)	CPU_TEST_CALLER   + \
-								CPU_TEST_CALLEE   + \
-								WDG_TEST_CALLER   + \
-								CRC32_TEST_CALLER + \
-								CRC32_TEST_CALLEE)
+                                CPU_TEST_CALLEE   + \
+                                WDG_TEST_CALLER   + \
+                                CRC32_TEST_CALLER + \
+                                CRC32_TEST_CALLEE)
 #ifdef  __ENABLE_CLOCK_TEST__
 #define CHECKPOINT2 ((uint32_t)	CLOCK_TEST_CALLER + \
-								CLOCK_TEST_CALLEE + \
-								LSI_INIT_CALLEE + \
-								HSE_INIT_CALLEE + \
-								RTC_INIT_CALLEE + \
-								SYSTICK_INIT_CALLEE + \
-								CLOCK_SWITCH_CALLEE + \
-								STACK_OVERFLOW_TEST)
-#else
-#define CHECKPOINT2 ((uint32_t)	STACK_OVERFLOW_TEST)
-#endif
-
+                                CLOCK_TEST_CALLEE + \
+                                LSI_INIT_CALLEE + \
+                                HSE_INIT_CALLEE + \
+                                RTC_INIT_CALLEE + \
+                                SYSTICK_INIT_CALLEE + \
+                                CLOCK_SWITCH_CALLEE + \
+                                STACK_OVERFLOW_TEST)
 #define DELTA_MAIN  ((uint32_t) CPU_TEST_CALLER + \
 								CPU_TEST_CALLEE + \
 								STACK_OVERFLOW_TEST + \
@@ -129,6 +124,18 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
 								FLASH_TEST_CALLER + \
 								CRC32_RUN_TEST_CALLEE + \
 								CRC32_TEST_CALLEE)
+
+#else
+#define CHECKPOINT2 ((uint32_t)	STACK_OVERFLOW_TEST)
+
+#define DELTA_MAIN  ((uint32_t) CPU_TEST_CALLER + \
+								CPU_TEST_CALLEE + \
+								STACK_OVERFLOW_TEST + \
+								STACK_OVERFLOW_CALLEE + \
+								FLASH_TEST_CALLER + \
+								CRC32_RUN_TEST_CALLEE + \
+								CRC32_TEST_CALLEE)
+#endif
 
 #define LAST_DELTA_MAIN ((uint32_t) DELTA_MAIN - CRC32_TEST_CALLEE)
 #define FULL_FLASH_CHECKED ((uint32_t)DELTA_MAIN * STEPS_NUMBER + LAST_DELTA_MAIN)
@@ -141,6 +148,8 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
 #define RAM_MARCHX_ISR_CALLER   ((uint32_t)13)
 #define RAM_MARCHX_ISR_CALLEE   ((uint32_t)17)
 
+#ifdef  __ENABLE_CLOCK_TEST__
+
 #ifndef USE_MARCH_X
   /* This is for March C tests */
   #define DELTA_ISR  ((uint32_t)  MEASPERIOD_ISR_CALLER + \
@@ -152,6 +161,20 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
                                   RAM_MARCHX_ISR_CALLER + \
                                   RAM_MARCHX_ISR_CALLEE)
 #endif /* USE_MARCH_X */ 
+
+#else
+
+#ifndef USE_MARCH_X
+  /* This is for March C tests */
+  #define DELTA_ISR  ((uint32_t)  RAM_MARCHC_ISR_CALLER + \
+                                  RAM_MARCHC_ISR_CALLEE)
+#else
+  /* This is for March X tests */
+  #define DELTA_ISR  ((uint32_t)  RAM_MARCHX_ISR_CALLER + \
+                                  RAM_MARCHX_ISR_CALLEE)
+#endif /* USE_MARCH_X */ 
+
+#endif
 
 #define CLASS_B_ROWS ((uint32_t)(CLASS_B_END - CLASS_B_START)/4u)
 /* +1 below is for buffer self-test */
@@ -203,7 +226,7 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
   #define ROM_END   ((uint8_t *)(&__Check_Sum) - 1)
   #define ROM_SIZE  ((uint32_t)ROM_END - (uint32_t)ROM_START + 1)
  
-  #define STEPS_NUMBER          ((uint32_t)ROM_SIZE/64)
+  #define STEPS_NUMBER          ((uint32_t)ROM_SIZE/512)
   #define FLASH_BLOCK           (uint32_t)((ROM_SIZE) / STEPS_NUMBER)
 
   /* Constants necessary for Transparent March tests */
@@ -212,7 +235,7 @@ must be equal or multiple. RUN time base must take into account SysTick prescale
 
   /* Constants necessary for RAM test (RAM_END is word aligned ) */
   #define RAM_START  (uint32_t *)0x20000000  
-  #define RAM_END    (uint32_t *)0x20001FFC
+  #define RAM_END    (uint32_t *)0x20017FFC
 #endif  /* __CC_ARM */
 
 /* Exported functions ------------------------------------------------------- */
@@ -220,13 +243,15 @@ void STL_VerbosePORInit(void);
 CPUStatus STL_StartUpCPUTest(void);
 void STL_WDGSelfTest(void);
 void Reset_Handler(void);
-ErrorStatus RCC_Config48MHzOnHSI(void);
-uint16_t STL_crc16(uint16_t sum, const uint8_t *p, uint32_t len);
+//ErrorStatus RCC_Config48MHzOnHSI(void);
+//uint16_t STL_crc16(uint16_t sum, const uint8_t *p, uint32_t len);
 void STLSystemInit (void);
 ErrorStatus STL_FullRamMarchC(void);
-void USART_ReConfigurationClk(uint8_t clk);
+
+ErrorStatus STL_fullRamMC(uint32_t *beg, uint32_t *end, uint32_t pat);
+//void USART_ReConfigurationClk(uint8_t clk);
 void ComputeInitialFlash32CRC(void);
-ErrorStatus RCC_SwitchOffPLL(void);
+//ErrorStatus RCC_SwitchOffPLL(void);
 ClockStatus STL_ClockStartUpTest(void);
 void FailSafePOR(void);
 void STL_StartUp(void);

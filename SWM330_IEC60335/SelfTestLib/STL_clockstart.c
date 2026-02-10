@@ -114,7 +114,7 @@ static ErrorStatus STL_LSIinit(void)
   SYS->RCCR |= (1 << SYS_RCCR_LON_Pos);
 
 	/* Wait till LSI is ready */
-	for(i = 0; i < 3000; i++) __NOP();
+	for(i = 0; i < 3000; i++) __NOP();  /* No way to check if LRC is working !!! */
 
 	Result = SUCCESS;
 

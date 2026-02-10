@@ -38,8 +38,9 @@ LR_IROM1 0x00000000 0x000FFFFC {    ; load region size_region 载荷区尺寸区
     }
 	
   }
-LR_IROM2 0x000FFFFC  0x4 {    ; load region size_region 载荷区尺寸区
-	ER_IROM2 0x000FFFFC 0x4 {
+  ; CHECKSUM on the first address of the last block, where the block size is the runtime ROM crc size
+LR_IROM2 0x000FFE00  0x4 {    ; load region size_region 载荷区尺寸区
+	ER_IROM2 0x000FFE00 0x4 {
 	  *.o (CHECKSUM)
     }
   }
