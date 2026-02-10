@@ -59,7 +59,7 @@ void STL_StartUp(void)
 	CtrlFlowCnt += CRC32_TEST_CALLER;
 	/* Compute the 32-bit crc of the whole Flash except the checksum pattern stored at top of FLASH */
 	CurrentCrc32 = CRC_CalcBlockCrc((const uint8_t *)ROM_START, ROM_SIZE, CRC_INIT);
-	if(CurrentCrc32 == __Check_Sum)		// 等程序完全调好，__Check_Sum的值设置为校验值后将“==”修改为“!=”
+	if(CurrentCrc32 != __Check_Sum)		// 等程序完全调好，__Check_Sum的值设置为校验值后将“==”修改为“!=”
 	{
 		FailSafePOR();
 	}
